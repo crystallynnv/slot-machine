@@ -1,23 +1,27 @@
 /*----- constants -----*/
-
+var icons = ['images/7-icon.jpeg', 'images/banana-icon.jpeg','images/bar-icon.jpeg', 'images/bigwin-icon.jpeg', 'images/cherries-icon.jpeg', 'images/grape-icon.jpeg', 'images/lemon-icon.jpeg', 'images/orange-icon.jpeg', 'images/watermelon-icon.jpeg'];
 
 /*----- app's state (variables) -----*/
-let money = 1000;
+let money;
 let bet = 5;
 let finalBet;
 
-
-
 /*----- cached element references -----*/
+const slot0 = document.getElementById('slot0');
+const slot1 = document.getElementById('slot1');
+const slot2 = document.getElementById('slot2');
+const bank = document.getElementById('bank');
 
-
+let img0 = document.getElementById('0');
+let img1 = document.getElementById('1');
+let img2 = document.getElementById('2');
 
 /*----- event listeners -----*/
 let betOne = document.getElementById('bet1').addEventListener('click', betTimesOne);
 let betThree = document.getElementById('bet3').addEventListener('click', betTimesThree);
 let betFive = document.getElementById('bet5').addEventListener('click', betTimesFive);
-
 let goSpin = document.getElementById('spin').addEventListener('click', playSpin)
+
 
 
 /*----- functions -----*/
@@ -31,7 +35,39 @@ function betTimesFive() {
     return finalBet = bet * 5;   
 };
 
-function playSpin() {
-    
-}
 
+
+
+init();
+function init() {
+    money = 1000;
+    finalBet = 5;
+    render();
+};
+
+function playSpin() {
+    money = money - finalBet;
+    let idx = Math.floor(Math.random() * Math.floor(icons.length -1));
+    img0.src = icons[idx];
+    let idx1 = Math.floor(Math.random() * Math.floor(icons.length -1));
+    img1.src = icons[idx1];
+    let idx2 = Math.floor(Math.random() * Math.floor(icons.length -1));
+    img2.src = icons[idx2];
+    
+    bigWin();
+    render();
+};
+
+function bigWin() {
+    if (img0.src === img1.src && img0.src === img2.src) {
+        money = finalBet * 1000;
+        
+    
+    };
+    render();
+};
+
+function render(){
+    bank.textContent = parseInt(money);
+
+};

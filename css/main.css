@@ -16,7 +16,6 @@ p {
     background-color: #a9050e;
     color: gold;
     padding: 7px;
-
 }
 
 img {
@@ -27,28 +26,23 @@ section.slots {
     display: grid;
     grid-template-rows: repeat(3, 17vmin);
     grid-template-columns: repeat(3, 17vmin);
-    margin-top: -377px;
-    
+    margin-top: -383px;
 }
+
 
 div {
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* justify-content: space-between; */
-    border: 3px solid;
+    /* border: 2px solid; */
     vertical-align: center;
-    
-    
-    
+    margin-left: 5px;
+    margin-top: -20px;
+    animation-duration: 3s;
 }
 
+
 section.buttons {
-    
     display: grid;
     grid-template-columns: repeat(7, 10vmin);
     margin-top: -50px;
-    
-    
 }
 
 #spin {
