@@ -6,11 +6,14 @@ let money;
 let bet = 5;
 let finalBet;
 let winSound = new Audio('sounds/winnerSound.m4a');
+let playSound = new Audio('sounds/playSound.m4a');
+let slotSound = new Audio('sounds/slotMachine.m4a');
 
 /*----- cached element references -----*/
 let img0 = document.getElementById('0');
 let img1 = document.getElementById('1');
 let img2 = document.getElementById('2');
+let bgAudio = document.querySelector('audio');
 
 
 /*----- event listeners -----*/
@@ -19,7 +22,7 @@ let betThree = document.getElementById('bet3').addEventListener('click', betTime
 let betFive = document.getElementById('bet5').addEventListener('click', betTimesFive);
 let goSpin = document.getElementById('spin').addEventListener('click', playSpin)
 
-
+bgAudio.volume = .2;
 
 /*----- functions -----*/
 function betTimesOne() {
@@ -32,20 +35,16 @@ function betTimesFive() {
     return finalBet = bet * 5;   
 };
 
-
-
-
 init();
+
 function init() {
+    slotSound.play();
     money = 1000;
     finalBet = 5;
+
     render();
 };
 
-// function preLoad() {
-//     winSound = loadSound("sounds/winnerSound.m4a");
-
-// };
 
 function playSpin() {
     money = money - finalBet;
@@ -55,6 +54,7 @@ function playSpin() {
     img1.src = icons[idx1];
     let idx2 = Math.floor(Math.random() * Math.floor(icons.length -1));
     img2.src = icons[idx2];
+    playSound.play();
     
     bigWin();
     render();
@@ -64,10 +64,9 @@ function playSpin() {
 
 function bigWin() {
     if (img0.src === img1.src && img0.src === img2.src) {
-        money = finalBet * 1000;
+        money += finalBet * 1000;
         winSound.play();
     };
-    
     render();
 };
 
