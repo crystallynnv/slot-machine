@@ -84,6 +84,10 @@ audio {
     img {
         margin-top: 155px;
     }
+    p {
+        text-align: center;
+        margin-left: auto;
+    }
     section.slots{
         margin-top: -195px;
         display: grid;
