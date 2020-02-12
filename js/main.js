@@ -10,9 +10,9 @@ let playSound = new Audio('sounds/playSound.m4a');
 let slotSound = new Audio('sounds/slotMachine.m4a');
 
 /*----- cached element references -----*/
-let img0 = document.getElementById('0');
-let img1 = document.getElementById('1');
-let img2 = document.getElementById('2');
+let img0 = document.getElementById('img0');
+let img1 = document.getElementById('img1');
+let img2 = document.getElementById('img2');
 let bgAudio = document.querySelector('audio');
 
 
@@ -38,13 +38,10 @@ function betTimesFive() {
 init();
 
 function init() {
-    slotSound.play();
     money = 1000;
     finalBet = 5;
-
     render();
 };
-
 
 function playSpin() {
     money = money - finalBet;
@@ -60,9 +57,14 @@ function playSpin() {
     render();
 };
 
-
-
 function bigWin() {
+    // if (img0.src === 'images/banana-icon.jpeg' && img1.src === 'images/banana-icon.jpeg' && img2.src === 'images/banana-icon.jpeg') {
+    //     money += finalBet * 50;
+    // } else if (img0.src === 'images/7-icon.jpeg' && img1.src === 'images/7-icon.jpeg' && img2.src === 'images/7-icon.jpeg') {
+    //     money += finalBet * 100;
+    // }
+    
+    
     if (img0.src === img1.src && img0.src === img2.src) {
         money += finalBet * 1000;
         winSound.play();
