@@ -41,41 +41,42 @@ function init() {
     render();
 };
 
-let interval;
-var count = 0;
+function callChange() {
+    for (i = 0; i < 10; i++) {
+        let idx = Math.floor(Math.random() * Math.floor(icons.length -1));
+        setTimeout(changeImage, i * 50, idx);
+    }
+    for (i = 0; i < 20; i++) {
+        let idx1 = Math.floor(Math.random() * Math.floor(icons.length -1));
+        setTimeout(changeImage1, i * 50, idx1);
+    }
+    for (i = 0; i < 30; i++) {
+        let idx2 = Math.floor(Math.random() * Math.floor(icons.length -1));
+        setTimeout(changeImage2, i * 50, idx2);
+    }
+    setTimeout(bigWin, 2200);
+};
 
-// Commented out to later flash slot images for every spin
-// function callChange() {
-//     let idx = Math.floor(Math.random() * Math.floor(icons.length -1));
-//     for (i = 0; i < 25; i++) {
-//         setTimeout(changeImage, i * 1, idx);
-//     }
-// };
+function changeImage(idx) {
+    img0.src = icons[idx];
+};
 
-// function changeImage(idx) {
-//     interval = setInterval(changeImage, 100);
-//     let idx = Math.floor(Math.random() * Math.floor(icons.length -1));
-//     img0.src = icons[idx]; 
-//     count++;
-//     console.log(count, "this is the count");
-//     console.log(interval, "intervals");
-//     bigWin();
-// };
+function changeImage1(idx1) {
+    img1.src = icons[idx1];
+};
+
+function changeImage2(idx2) {
+    img2.src = icons[idx2];
+};
 
 function playSpin() {
     if (money < 0) {
         return
     };
     money = money - finalBet;
-    // callChange();
-    let idx = Math.floor(Math.random() * Math.floor(icons.length -1));
-    img0.src = icons[idx];
-    let idx1 = Math.floor(Math.random() * Math.floor(icons.length -1));
-    img1.src = icons[idx1];
-    let idx2 = Math.floor(Math.random() * Math.floor(icons.length -1));
-    img2.src = icons[idx2];
+    callChange();
+    setTimeout(bigWin(), 5000);
     playSound.play();
-    bigWin();
     render();
 };
 

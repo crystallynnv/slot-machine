@@ -24,7 +24,7 @@ GOOD LUCK!
 * Display money amount
 * Decrease money amount with every spin with bet amount
 
-![GameScreenshot](https://i.imgur.com/Zupq7xZ.png)
+![GameScreenshot](https://i.imgur.com/pvuy6VT.png)
 
 
 [Click here to play!](https://crystallynnv.github.io/slot-machine/)
@@ -33,3 +33,7 @@ GOOD LUCK!
 ### Stretch goals
 * Flash the slot images for 1.5 seconds per spin
 * Add confetti for the win
+
+### Credits
+* Background vector created by smithytomy - www.freepik.com
+* Audio by touchassembly - www.freesound.org
