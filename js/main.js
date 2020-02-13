@@ -1,5 +1,5 @@
 /*----- constants -----*/
-var icons = ['images/7-icon.jpeg', 'images/banana-icon.jpeg','images/bar-icon.jpeg', 'images/bigwin-icon.jpeg', 'images/cherries-icon.jpeg', 'images/grape-icon.jpeg', 'images/lemon-icon.jpeg', 'images/orange-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/cherries-icon.jpeg', 'images/cherries-icon.jpeg', 'images/cherries-icon.jpeg', 'images/cherries-icon.jpeg', 'images/cherries-icon.jpeg', 'images/cherries-icon.jpeg', 'images/cherries-icon.jpeg', 'images/cherries-icon.jpeg'];
+var icons = ['images/7-icon.jpeg', 'images/banana-icon.jpeg','images/bar-icon.jpeg', 'images/bigwin-icon.jpeg', 'images/cherries-icon.jpeg', 'images/grape-icon.jpeg', 'images/lemon-icon.jpeg', 'images/orange-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/cherries-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/cherries-icon.jpeg'];
 
 /*----- app's state (variables) -----*/
 let money;
@@ -81,12 +81,6 @@ function playSpin() {
 };
 
 function bigWin() {
-    // Commented out to apply different win amount for each image
-    // if (img0.src === 'images/banana-icon.jpeg' && img1.src === 'images/banana-icon.jpeg' && img2.src === 'images/banana-icon.jpeg') {
-    //     money += finalBet * 50;
-    // } else if (img0.src === 'images/7-icon.jpeg' && img1.src === 'images/7-icon.jpeg' && img2.src === 'images/7-icon.jpeg') {
-    //     money += finalBet * 100;
-    // }
     if (img0.src === img1.src && img0.src === img2.src) {
         money += finalBet * 1000;
         winSound.play();
