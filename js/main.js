@@ -1,5 +1,5 @@
 /*----- constants -----*/
-var icons = ['images/7-icon.jpeg', 'images/banana-icon.jpeg','images/bar-icon.jpeg', 'images/bigwin-icon.jpeg', 'images/cherries-icon.jpeg', 'images/grape-icon.jpeg', 'images/lemon-icon.jpeg', 'images/orange-icon.jpeg', 'images/watermelon-icon.jpeg'];
+var icons = ['images/7-icon.jpeg', 'images/banana-icon.jpeg','images/bar-icon.jpeg', 'images/bigwin-icon.jpeg', 'images/cherries-icon.jpeg', 'images/grape-icon.jpeg', 'images/lemon-icon.jpeg', 'images/orange-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/cherries-icon.jpeg', 'images/cherries-icon.jpeg', 'images/cherries-icon.jpeg', 'images/cherries-icon.jpeg', 'images/cherries-icon.jpeg', 'images/cherries-icon.jpeg', 'images/cherries-icon.jpeg', 'images/cherries-icon.jpeg'];
 
 /*----- app's state (variables) -----*/
 let money;
@@ -15,13 +15,11 @@ let img1 = document.getElementById('img1');
 let img2 = document.getElementById('img2');
 let bgAudio = document.querySelector('audio');
 
-
 /*----- event listeners -----*/
 let betOne = document.getElementById('bet1').addEventListener('click', betTimesOne);
 let betThree = document.getElementById('bet3').addEventListener('click', betTimesThree);
 let betFive = document.getElementById('bet5').addEventListener('click', betTimesFive);
 let goSpin = document.getElementById('spin').addEventListener('click', playSpin)
-
 bgAudio.volume = .2;
 
 /*----- functions -----*/
@@ -43,8 +41,33 @@ function init() {
     render();
 };
 
+let interval;
+var count = 0;
+
+// Commented out to later flash slot images for every spin
+// function callChange() {
+//     let idx = Math.floor(Math.random() * Math.floor(icons.length -1));
+//     for (i = 0; i < 25; i++) {
+//         setTimeout(changeImage, i * 1, idx);
+//     }
+// };
+
+// function changeImage(idx) {
+//     interval = setInterval(changeImage, 100);
+//     let idx = Math.floor(Math.random() * Math.floor(icons.length -1));
+//     img0.src = icons[idx]; 
+//     count++;
+//     console.log(count, "this is the count");
+//     console.log(interval, "intervals");
+//     bigWin();
+// };
+
 function playSpin() {
+    if (money < 0) {
+        return
+    };
     money = money - finalBet;
+    // callChange();
     let idx = Math.floor(Math.random() * Math.floor(icons.length -1));
     img0.src = icons[idx];
     let idx1 = Math.floor(Math.random() * Math.floor(icons.length -1));
@@ -52,19 +75,17 @@ function playSpin() {
     let idx2 = Math.floor(Math.random() * Math.floor(icons.length -1));
     img2.src = icons[idx2];
     playSound.play();
-    
     bigWin();
     render();
 };
 
 function bigWin() {
+    // Commented out to apply different win amount for each image
     // if (img0.src === 'images/banana-icon.jpeg' && img1.src === 'images/banana-icon.jpeg' && img2.src === 'images/banana-icon.jpeg') {
     //     money += finalBet * 50;
     // } else if (img0.src === 'images/7-icon.jpeg' && img1.src === 'images/7-icon.jpeg' && img2.src === 'images/7-icon.jpeg') {
     //     money += finalBet * 100;
     // }
-    
-    
     if (img0.src === img1.src && img0.src === img2.src) {
         money += finalBet * 1000;
         winSound.play();
@@ -73,6 +94,5 @@ function bigWin() {
 };
 
 function render(){
-    bank.textContent = parseInt(money);
-
+    bank.textContent = `$${parseInt(money)}`;
 };
