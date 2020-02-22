@@ -9,6 +9,17 @@ body {
     margin: 50px;
 }
 
+#my-canvas {
+    float: left;
+    position: fixed;
+    z-index: -1;
+}
+
+#message {
+    color: white;
+    margin-top: 70px;
+}
+
 p {
     text-align: left;
     font-size: 3vmin;
@@ -30,11 +41,13 @@ img {
     width: 100px; 
     height:123px;
 }
+
 #img1 {
     margin:auto; 
     width: 100px; 
     height:123px;
 }
+
 #img2 {
     margin:auto; 
     width: 100px; 
@@ -45,16 +58,14 @@ section.slots {
     display: grid;
     grid-template-rows: repeat(3, 17vmin);
     grid-template-columns: repeat(3, 17vmin);
-    margin-top: -377px;
+    margin-top: -393px;
 }
-
 
 div {
     vertical-align: center;
     margin-left: 5px;
     margin-top: -10px;
 }
-
 
 section.buttons {
     display: grid;
@@ -74,7 +85,6 @@ audio {
 @media only screen and (min-width: 1024px) {
     img {
         margin-top: 30px;
-
     }
 }
 

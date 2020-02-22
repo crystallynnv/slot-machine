@@ -1,5 +1,7 @@
+// import ConfettiGenerator from "./confetti";
+
 /*----- constants -----*/
-var icons = ['images/7-icon.jpeg', 'images/banana-icon.jpeg','images/bar-icon.jpeg', 'images/bigwin-icon.jpeg', 'images/cherries-icon.jpeg', 'images/grape-icon.jpeg', 'images/lemon-icon.jpeg', 'images/orange-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/cherries-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/cherries-icon.jpeg'];
+let icons = ['images/7-icon.jpeg', 'images/banana-icon.jpeg','images/bar-icon.jpeg', 'images/bigwin-icon.jpeg', 'images/cherries-icon.jpeg', 'images/grape-icon.jpeg', 'images/lemon-icon.jpeg', 'images/orange-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/cherries-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/cherries-icon.jpeg'];
 
 /*----- app's state (variables) -----*/
 let money;
@@ -9,11 +11,13 @@ let winSound = new Audio('sounds/winnerSound.m4a');
 let playSound = new Audio('sounds/playSound.m4a');
 let slotSound = new Audio('sounds/slotMachine.m4a');
 
+
 /*----- cached element references -----*/
 let img0 = document.getElementById('img0');
 let img1 = document.getElementById('img1');
 let img2 = document.getElementById('img2');
 let bgAudio = document.querySelector('audio');
+let message = document.getElementById('message');
 
 /*----- event listeners -----*/
 let betOne = document.getElementById('bet1').addEventListener('click', betTimesOne);
@@ -36,7 +40,7 @@ function betTimesFive() {
 init();
 
 function init() {
-    money = 1000;
+    money = 25;
     finalBet = 5;
     render();
 };
@@ -70,12 +74,18 @@ function changeImage2(idx2) {
 };
 
 function playSpin() {
-    if (money < 0) {
+    if (money <= 0) {
+        message.textContent = 'Oh no! You ran out of money. 😭';
+        message.style.color = white;
+        return
+    };
+    if(money - finalBet < 0) {
         return
     };
     money = money - finalBet;
     callChange();
     setTimeout(bigWin(), 5000);
+    confetti.clear();
     playSound.play();
     render();
 };
