@@ -40,7 +40,7 @@ function betTimesFive() {
 init();
 
 function init() {
-    money = 25;
+    money = 100;
     finalBet = 5;
     render();
 };
