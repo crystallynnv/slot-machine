@@ -31,8 +31,8 @@ GOOD LUCK!
 
 
 ### Stretch goals
-* Flash the slot images for 1.5 seconds per spin
-* Add confetti for the win
+- [x] Flash the slot images for 1.5 seconds per spin
+- [ ] Change win amount per image
 
 ### Credits
 * Background vector created by smithytomy - www.freepik.com
