@@ -9,11 +9,7 @@ body {
     margin: 50px;
 }
 
-#my-canvas {
-    float: left;
-    position: fixed;
-    z-index: -1;
-}
+
 
 #message {
     color: white;

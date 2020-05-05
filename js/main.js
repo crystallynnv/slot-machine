@@ -1,7 +1,7 @@
 // import ConfettiGenerator from "./confetti";
 
 /*----- constants -----*/
-let icons = ['images/7-icon.jpeg', 'images/banana-icon.jpeg','images/bar-icon.jpeg', 'images/bigwin-icon.jpeg', 'images/cherries-icon.jpeg', 'images/grape-icon.jpeg', 'images/lemon-icon.jpeg', 'images/orange-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/cherries-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/cherries-icon.jpeg'];
+let icons = ['images/7-icon.jpeg', 'images/banana-icon.jpeg','images/bar-icon.jpeg', 'images/bigwin-icon.jpeg', 'images/cherries-icon.jpeg', 'images/grape-icon.jpeg', 'images/lemon-icon.jpeg', 'images/orange-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/cherries-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/watermelon-icon.jpeg', 'images/cherries-icon.jpeg'];
 
 /*----- app's state (variables) -----*/
 let money;
@@ -24,7 +24,7 @@ let betOne = document.getElementById('bet1').addEventListener('click', betTimesO
 let betThree = document.getElementById('bet3').addEventListener('click', betTimesThree);
 let betFive = document.getElementById('bet5').addEventListener('click', betTimesFive);
 let goSpin = document.getElementById('spin').addEventListener('click', playSpin)
-bgAudio.volume = .2;
+// bgAudio.volume = .2;
 
 /*----- functions -----*/
 function betTimesOne() {
@@ -40,7 +40,7 @@ function betTimesFive() {
 init();
 
 function init() {
-    money = 100;
+    money = 1000;
     finalBet = 5;
     render();
 };
@@ -58,7 +58,7 @@ function callChange() {
         let idx2 = Math.floor(Math.random() * Math.floor(icons.length -1));
         setTimeout(changeImage2, i * 50, idx2);
     }
-    setTimeout(bigWin, 2200);
+    setTimeout(bigWin, 2000);
 };
 
 function changeImage(idx) {
@@ -84,8 +84,7 @@ function playSpin() {
     };
     money = money - finalBet;
     callChange();
-    setTimeout(bigWin(), 5000);
-    confetti.clear();
+    
     playSound.play();
     render();
 };
